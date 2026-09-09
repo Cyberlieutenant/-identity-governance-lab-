@@ -1,6 +1,8 @@
 # 🔐 Identity Governance Lab
 ### Entra ID PIM · Access Reviews · Entitlement Management
 
+> One-line takeaway: Building a hands-on identity governance lab demonstrating least-privilege access principles through just-in-time role activation, recurring access certification, and self-service access requests.
+
 ![Entra ID](https://img.shields.io/badge/Entra%20ID-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
 ![Intune](https://img.shields.io/badge/Intune-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)
 ![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white)
@@ -14,7 +16,7 @@ and self-service access requests with approval workflows — in a Microsoft 365 
 ## 🧱 Environment
 | Component | Details |
 |---|---|
-| Tenant | Microsoft 365 (Entra ID P2 — licensing to be confirmed) |
+| Tenant | Microsoft 365 with Entra ID P2 (Trial) — confirmed active |
 | Identities | Test user accounts simulating a real org structure |
 | Groups | Security groups representing sample departments/roles |
 
@@ -59,9 +61,15 @@ Each stage of this lab documents:
 
 ## 📅 Progress Log
 
-### [Date] — Environment Setup
+### September 9, 2026 — Environment Setup & Licensing
 - Repo created to document the build as I go
-- Next: confirm Entra ID P2 licensing availability
+- Checked Microsoft 365 admin center Marketplace for Entra ID P2 trial availability
+- Added the trial package; confirmed active in Billing > Subscriptions
+- Assigned the license to admin account via Users > Licenses and Apps
+- Verified P2 features unlocked by successfully loading Privileged Identity Management
+  in Entra ID with no licensing error
+- Next: create test users and security groups to simulate a sample org structure,
+  then begin PIM configuration
 
 ## 🚧 Status
 In progress — environment setup phase
