@@ -17,8 +17,8 @@ and self-service access requests with approval workflows — in a Microsoft 365 
 | Component | Details |
 |---|---|
 | Tenant | Microsoft 365 with Entra ID P2 (Trial) — confirmed active |
-| Identities | Test user accounts simulating a real org structure |
-| Groups | Security groups representing sample departments/roles |
+| Test Users | 5 users simulating Finance, IT, and HR roles |
+| Groups | Finance-Team, IT-Admins, HR-Team — each mapped to a governance feature |
 
 ## 🔑 Skills Demonstrated
 - Microsoft Entra ID Privileged Identity Management (PIM)
@@ -70,6 +70,14 @@ Each stage of this lab documents:
   in Entra ID with no licensing error
 - Next: create test users and security groups to simulate a sample org structure,
   then begin PIM configuration
+  ### September 14, 2026 — Test Org Structure Setup
+- Created 5 test users representing a small sample organization:
+  Sarah Chen (Finance Analyst), Maria Lopez (Finance Manager),
+  James Okafor (IT Support Specialist), Priya Patel (IT Manager),
+  David Kim (HR Coordinator)
+- Created 3 security groups mapped to different governance features to demo:
+  Finance-Team (for Access Reviews), IT-Admins (for PIM), HR-Team (for Entitlement Management)
+- Next: configure PIM on IT-Admins — eligible role assignment with approval workflow
 
 ## 🚧 Status
 In progress — environment setup phase
