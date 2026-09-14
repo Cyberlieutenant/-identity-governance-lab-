@@ -51,7 +51,7 @@ and self-service access requests with approval workflows — in a Microsoft 365 
 ## 🛠️ Notable Troubleshooting
 | Issue | Root Cause | Resolution |
 |---|---|---|
-| *(populated as the lab progresses)* | | |
+| PIM role assignment failed ("role is not found") | Likely first-time PIM backend sync delay after enabling P2 licensing | Under investigation — retry planned after wait period |
 
 ## 📋 Documentation Approach
 Each stage of this lab documents:
@@ -78,6 +78,15 @@ Each stage of this lab documents:
 - Created 3 security groups mapped to different governance features to demo:
   Finance-Team (for Access Reviews), IT-Admins (for PIM), HR-Team (for Entitlement Management)
 - Next: configure PIM on IT-Admins — eligible role assignment with approval workflow
+- ### September 14, 2026 — PIM Configuration Started
+- Navigated to Privileged Identity Management > Microsoft Entra roles for the first time
+  on this tenant, confirming P2-licensed features are accessible
+- Located the Helpdesk Administrator role and attempted to add James Okafor as an
+  Eligible assignment (not Active/permanent) — the correct just-in-time access model
+- First attempt failed: "Role assignment failed... The role is not found" — likely a
+  first-time PIM backend sync delay on a freshly-licensed trial tenant
+- Next: retry after allowing backend sync time; if it persists, test with a different
+  role to isolate the cause
 
-## 🚧 Status
-In progress — environment setup phase
+### 1. Privileged Identity Management (PIM)
+*Status: 🔄 in progress*
