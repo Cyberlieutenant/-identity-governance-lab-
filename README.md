@@ -20,6 +20,14 @@ and self-service access requests with approval workflows — in a Microsoft 365 
 | Test Users | 5 users simulating Finance, IT, and HR roles |
 | Groups | Finance-Team, IT-Admins, HR-Team — each mapped to a governance feature |
 
+## 📊 Quick Summary
+
+| Feature | What It Demonstrates | Status |
+|---|---|---|
+| PIM for Groups | Just-in-time privileged access | ✅ Complete |
+| Access Reviews | Recurring access certification | ✅ Complete |
+| Entitlement Management | Self-service access requests | 🔄 Pending |
+
 ## 🔑 Skills Demonstrated
 - Microsoft Entra ID Privileged Identity Management (PIM)
 - Just-in-time (JIT) privileged access activation with approval workflows
@@ -27,6 +35,8 @@ and self-service access requests with approval workflows — in a Microsoft 365 
 - Entitlement Management — access packages, request/approval policies, expiration
 - Least-privilege access design principles
 - Entra ID licensing and tenant administration
+- Entra ID group-based access requests and manager approval workflows
+- Access certification design (reviewer assignment, auto-remediation, decision helpers)
 
 ## 📦 What This Lab Covers
 
@@ -53,6 +63,7 @@ and self-service access requests with approval workflows — in a Microsoft 365 
 |---|---|---|
 | PIM role assignment failed ("role is not found") | Likely first-time PIM backend sync delay after enabling P2 licensing | Under investigation — retry planned after wait period |
 | PIM role assignment failed ("role is not found") across multiple Entra roles | Tenant-specific backend issue isolated to PIM's Entra role assignment feature (license and role definitions confirmed valid) | Pivoted to PIM for Groups — same just-in-time access model, different backend path, worked successfully |
+| PIM activation failed ("Role assignment already exists") | Priya was still a permanent/direct group member from initial setup, conflicting with her separate PIM-eligible assignment | Removed her permanent membership — PIM eligibility became her only path into the group |
 
 ## 📋 Documentation Approach
 Each stage of this lab documents:
@@ -131,6 +142,23 @@ Each stage of this lab documents:
 - Verified Priya now shows as an active, time-limited member of IT-Admins
 - Full just-in-time access cycle demonstrated end-to-end: eligible → requested → MFA →
   justification → approval → active (temporary) access
+### September 19, 2026 — Access Review Configured for Finance-Team
+- Navigated to Identity Governance > Access reviews to create a new review (the direct
+  "Access reviews" search result led to a limited legacy view with no create option —
+  Identity Governance was the correct path)
+- Selected "Resource review" template, scoped to the Finance-Team group, reviewing all
+  members (not guest-only)
+- Set recurrence to Quarterly, 7-day review window, starting immediately with no end date
+- Assigned Maria Lopez (Finance Manager) as the reviewer — a realistic manager-reviews-
+  their-own-team setup
+- Enabled auto-apply results with "Remove access" as the default if no response —
+  demonstrating fail-secure, least-privilege enforcement
+- Enabled the "No sign-in within 30 days" decision helper to assist the reviewer
+- Enabled justification requirement, email notifications, and reminders
+- Named it "Finance-Team Quarterly Access Review" and created it successfully
+
 
 ### 1. Privileged Identity Management (PIM)
+*Status: ✅ Complete*
+### 2. Access Reviews
 *Status: ✅ Complete*
