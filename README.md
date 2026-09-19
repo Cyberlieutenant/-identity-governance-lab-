@@ -115,6 +115,22 @@ Each stage of this lab documents:
   membership, requiring MFA, a written justification, and manager approval before
   activation succeeds
 - Next: test the full activation cycle as Priya Patel, then approve the request as admin
+- ### September 19, 2026 — Full PIM Activation Cycle Tested (PIM Complete)
+- Signed in as Priya Patel in a separate browser session to test activation from the
+  requester's perspective
+- First activation attempt failed: "The Role assignment already exists" — root cause was
+  Priya still being a permanent/direct member of IT-Admins from initial group creation,
+  conflicting with her separate PIM-eligible assignment
+- Resolved by removing Priya's permanent membership, leaving PIM eligibility as her only
+  path into the group — a cleaner, more realistic setup (James Okafor remains a standard
+  permanent member for contrast)
+- Successfully activated: provided justification, completed Azure MFA, request went to
+  "pending approval"
+- Switched to admin account, reviewed and approved the pending request via
+  PIM > Approve requests
+- Verified Priya now shows as an active, time-limited member of IT-Admins
+- Full just-in-time access cycle demonstrated end-to-end: eligible → requested → MFA →
+  justification → approval → active (temporary) access
 
 ### 1. Privileged Identity Management (PIM)
 *Status: 🔄 in progress — using PIM for Groups*
