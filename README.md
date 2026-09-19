@@ -52,6 +52,7 @@ and self-service access requests with approval workflows — in a Microsoft 365 
 | Issue | Root Cause | Resolution |
 |---|---|---|
 | PIM role assignment failed ("role is not found") | Likely first-time PIM backend sync delay after enabling P2 licensing | Under investigation — retry planned after wait period |
+| PIM role assignment failed ("role is not found") across multiple Entra roles | Tenant-specific backend issue isolated to PIM's Entra role assignment feature (license and role definitions confirmed valid) | Pivoted to PIM for Groups — same just-in-time access model, different backend path, worked successfully |
 
 ## 📋 Documentation Approach
 Each stage of this lab documents:
@@ -87,6 +88,23 @@ Each stage of this lab documents:
   first-time PIM backend sync delay on a freshly-licensed trial tenant
 - Next: retry after allowing backend sync time; if it persists, test with a different
   role to isolate the cause
+  ### September 19, 2026 — PIM Troubleshooting & Successful Pivot
+- Attempted to assign James Okafor as Eligible for the Helpdesk Administrator role via
+  PIM > Microsoft Entra roles — failed with "Role assignment failed... The role is not
+  found"
+- Isolated the cause methodically: retried with a different role (User Administrator) —
+  same error; retried in a fresh incognito session to rule out stale tokens — same error;
+  confirmed via Billing that the Entra ID P2 license was genuinely active and assigned;
+  confirmed via Roles & admins (outside PIM) that role definitions exist normally in
+  the directory
+- Concluded this was a tenant-specific backend issue isolated to PIM's Entra role
+  assignment path, not a licensing or configuration problem
+- Pivoted to PIM for Groups instead — a legitimate, commonly-used alternative that
+  demonstrates the same just-in-time access concept applied to group membership
+- Successfully added Priya Patel as an Eligible member of IT-Admins via
+  Groups > Privileged Identity Management > IT-Admins > Add assignments
+- Next: configure activation requirements (MFA, approval, justification) and test a
+  full activation cycle
 
 ### 1. Privileged Identity Management (PIM)
-*Status: 🔄 in progress*
+*Status: 🔄 in progress — using PIM for Groups*
