@@ -105,6 +105,16 @@ Each stage of this lab documents:
   Groups > Privileged Identity Management > IT-Admins > Add assignments
 - Next: configure activation requirements (MFA, approval, justification) and test a
   full activation cycle
+  ### September 19, 2026 — PIM Activation Requirements Configured
+- Edited the "Member" role settings for IT-Admins under Groups > Privileged Identity
+  Management
+- Enabled "Azure MFA" as a required condition on activation
+- Confirmed "Require justification on activation" was already enabled by default
+- Enabled "Require approval to activate" and added KokoriLab admin as the designated approver
+- IT-Admins now demonstrates a full just-in-time access model: eligible (not permanent)
+  membership, requiring MFA, a written justification, and manager approval before
+  activation succeeds
+- Next: test the full activation cycle as Priya Patel, then approve the request as admin
 
 ### 1. Privileged Identity Management (PIM)
 *Status: 🔄 in progress — using PIM for Groups*
